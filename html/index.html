@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Chooser Example</title>
+</head>
+<body>
+  <h1>File Chooser Example</h1>
+  <button id="openWindowButton">Open New Window</button>
+  <input id="fileInput" type="file" />
+  <p id="filename"></p>
+
+  <script>
+    document.getElementById('openWindowButton').addEventListener('click', function() {
+      window.open();
+    });
+    document.getElementById('fileInput').addEventListener('change', function() {
+        // Handle selected file
+        const selectedFile = fileInput.files[0];
+        console.log('Selected file:', selectedFile);
+        
+        // Display the selected file name
+        const filenameElement = document.getElementById('filename');
+        if (selectedFile) {
+          filenameElement.textContent = `Selected file: ${selectedFile.name}`;
+        } else {
+          filenameElement.textContent = 'No file selected';
+        }
+    })
+  </script>
+</body>
+</html>
